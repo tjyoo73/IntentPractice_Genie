@@ -2,6 +2,7 @@ package com.tjlab.intentpractice_genie
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.tjlab.intentpractice_genie.databinding.ActivityMainBinding
@@ -32,9 +33,16 @@ class MainActivity : AppCompatActivity() {
         binding.editNicknameBtn.setOnClickListener {
             val myIntent = Intent(this, EditNicknameActivity::class.java)
             startActivityForResult(myIntent, REQUEST_FOR_NICKNAME)
-
-
         }
+
+        binding.dialBtn.setOnClickListener {
+            val inputPhoneNum = binding.phoneNumEdt.text.toString()
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_DIAL, myUri)
+            startActivity(myIntent)
+        }
+
+
     }
 
 
