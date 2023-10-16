@@ -8,6 +8,7 @@ import com.tjlab.intentpractice_genie.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    val REQUEST_FOR_NICKNAME = 1005
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,13 @@ class MainActivity : AppCompatActivity() {
             val myIntent = Intent(this, MessageActivity::class.java)
             myIntent.putExtra("message", inputMessage)
             startActivity(myIntent)
+        }
+
+        binding.editNicknameBtn.setOnClickListener {
+            val myIntent = Intent(this, EditNicknameActivity::class.java)
+            startActivityForResult(myIntent, REQUEST_FOR_NICKNAME)
+
+
         }
     }
 }
