@@ -1,5 +1,6 @@
 package com.tjlab.intentpractice_genie
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -32,6 +33,19 @@ class MainActivity : AppCompatActivity() {
             val myIntent = Intent(this, EditNicknameActivity::class.java)
             startActivityForResult(myIntent, REQUEST_FOR_NICKNAME)
 
+
+        }
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_FOR_NICKNAME) {
+            if (resultCode == Activity.RESULT_OK) {
+                val newNickname = data?.getStringExtra("nickname")
+                binding.nicknameTxt.text = newNickname
+
+            }
 
         }
     }
