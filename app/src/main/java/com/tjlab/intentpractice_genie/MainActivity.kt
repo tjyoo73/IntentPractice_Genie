@@ -39,6 +39,15 @@ class MainActivity : AppCompatActivity() {
             val inputPhoneNum = binding.phoneNumEdt.text.toString()
             val myUri = Uri.parse("tel:${inputPhoneNum}")
             val myIntent = Intent(Intent.ACTION_DIAL, myUri)
+            //val myIntent = Intent(Intent.ACTION_CALL, myUri)
+            startActivity(myIntent)
+        }
+
+        binding.smsBtn.setOnClickListener {
+            val inputPhoneNum = binding.phoneNumEdt.text.toString()
+            val myUri = Uri.parse("smsto:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+            myIntent.putExtra("sms_body", "미리 내용 입력")
             startActivity(myIntent)
         }
 
