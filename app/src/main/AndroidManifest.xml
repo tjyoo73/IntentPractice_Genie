@@ -13,6 +13,15 @@
         android:theme="@style/Theme.IntentPractice_Genie"
         tools:targetApi="31">
         <activity
+            android:name=".EditNicknameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OtherActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
